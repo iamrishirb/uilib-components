@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stacked 3d slider</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+</head>
+<body>
+    <!-- /////////--- cards / scenes / grids AREA ---//////// -->
+<div class="attractions">
+
+    <!-- stacked section -->
+    <div class="stacked-section">
+        <div class="right">
+            <h2 class="stackhead">Stacked Section heading</h2>
+            <div class="stack-container">
+                
+                <div id="dp-slider">
+         
+                    <div class="dp_item lazyload" style=" background-image: linear-gradient(to top, #26003b, rgba(0, 0, 0, 0.4)), url('templates.webp');" data-class="1" data-position="1">
+                        <div class="dp-content">
+                            <h2><br> Website Templates</h2>
+                            <!-- <p> Get premade beautiful templates and contact for customisation </p> -->
+                        </div>
+                    </div>
+
+                    <div class="dp_item lazyload" style=" background-image: linear-gradient(to top, #ff0037, rgba(0, 0, 0, 0.2)), url('snippets.webp');" data-class="2" data-position="2">
+                        <div class="dp-content">
+                            <h2><br> UI Snippets</h2>
+                            <!-- <p> A rich collection of UI snippets like cards, panels, gradients etc.</p> -->
+                        </div>
+                    </div>
+
+                    <div class="dp_item lazyload" style=" background-image: linear-gradient(#ffa60000, rgb(0, 0, 0)), url('articles.webp');" data-class="3" data-position="3">
+                        <div class="dp-content">
+                            <h2><br> Design Articles</h2>
+                            <!-- <p> Beautifully crafted articles to explain the latest design trends </p> -->
+                        </div>
+                    </div>
+
+                    <div class="dp_item lazyload" style=" background-image: linear-gradient(to top, #00ff62 , rgba(0, 0, 0, 0)), url('tutorial.webp');" data-class="4" data-position="4">
+                        <div class="dp-content">
+                            <h2><br> Design Tutorials</h2>
+                            <!-- <p> Tutorial series on various topics like Canvas, WebGL, threejs etc. </p> -->
+                        </div>
+                    </div>
+                </div>
+
+                <span id="dp-next">
+                    <i class="fa fa-arrow-circle-right"></i>                                            
+                </span>
+
+
+                <span id="dp-prev">
+                    <i class="fa fa-arrow-circle-left"></i>
+                </span>
+
+                <ul id="dp-dots">
+                    <li data-class="1" class="active"></li>
+                    <li data-class="2"></li>
+                    <li data-class="3"></li>
+                    <li data-class="4"></li>
+                </ul>
+                
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<script src="../assets/js/jquery-3.5.1.min.js"></script>
+<script>
+    function detect_active(){
+        // get active
+        var get_active = $("#dp-slider .dp_item:first-child").data("class");
+        $("#dp-dots li").removeClass("active");
+        $("#dp-dots li[data-class="+ get_active +"]").addClass("active");
+    }
+    $("#dp-next").click(function(){
+        var total = $(".dp_item").length;
+        $("#dp-slider .dp_item:first-child").hide().appendTo("#dp-slider").fadeIn();
+        $.each($('.dp_item'), function (index, dp_item) {
+            $(dp_item).attr('data-position', index + 1);
+    });
+        detect_active();
+    });
+
+    $("#dp-prev").click(function(){
+    var total = $(".dp_item").length;
+    $("#dp-slider .dp_item:last-child").hide().prependTo("#dp-slider").fadeIn();
+    $.each($('.dp_item'), function (index, dp_item) {
+        $(dp_item).attr('data-position', index + 1);
+    });
+
+    detect_active();
+    });
+
+    $("#dp-dots li").click(function(){
+    $("#dp-dots li").removeClass("active");
+    $(this).addClass("active");
+    var get_slide = $(this).attr('data-class');
+    console.log(get_slide);
+    $("#dp-slider .dp_item[data-class=" + get_slide + "]").hide().prependTo("#dp-slider").fadeIn();
+    $.each($('.dp_item'), function (index, dp_item) {
+        $(dp_item).attr('data-position', index + 1);
+    });
+    });
+
+
+    $("body").on("click", "#dp-slider .dp_item:not(:first-child)", function(){
+    var get_slide = $(this).attr('data-class');
+    console.log(get_slide);
+    $("#dp-slider .dp_item[data-class=" + get_slide + "]").hide().prependTo("#dp-slider").fadeIn();
+    $.each($('.dp_item'), function (index, dp_item) {
+        $(dp_item).attr('data-position', index + 1);
+    });
+
+    detect_active();
+    });
+</script>
+
+</body>
+</html>
