@@ -15,6 +15,7 @@
 body{
     background: var(--background);
     color: var(--textcolor);
+    overflow-x: hidden;
 }
 .wrapper{
     padding: 5%;
@@ -72,6 +73,7 @@ body{
 .name{
     text-decoration: none;
     color: var(--text);
+    font-family: var(--headings);
     font-size: 1.4em;
     letter-spacing: 0.1em;
     margin-bottom: 10px;
@@ -79,6 +81,7 @@ body{
 }
 .post{
     color: var(--textdark);
+    font-family: var(--text);
     font-size: 1.2em;
     margin-bottom: 50px;
     text-align: center;
