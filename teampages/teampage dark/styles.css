@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@100;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Allura&display=swap');
+
+*{
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    --headings: 'Poppins', sans-serif;
+    --text: 'Open Sans', sans-serif;
+    --background: #000;
+    --textcolor: #f8f9fa !important;
+    --textdark: #555;
+    --active: rgb(150, 0, 62);
+}
+body{
+    background: var(--background);
+    color: var(--textcolor);
+}
+.wrapper{
+    padding: 5%;
+}
+.main-heading{
+    font-family: var(--headings);
+    font-size: 6em;
+    font-weight: 100;
+    letter-spacing: 0.1em;
+    color: #ccc;
+    margin-bottom: 0px;
+}
+.main-heading:after{
+    content: "";
+    display: block;
+    background: var(--active);
+    width: 100px;
+    height: 5px;
+}
+.head p{
+    color: #4e4e4e;
+    font-size: 1.4em;
+    letter-spacing: 0.05em;
+    margin-top: 30px;
+    font-family: var(--text);
+}
+.cards-wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-top: 80px;
+}
+.teamcard{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 30%;
+    margin: 20px auto;
+}
+.usrimg{
+    width: 250px;
+    border-radius: 94% 51% 58% 100% / 55% 62% 71% 100%;
+    filter: grayscale(1);
+    margin-bottom: 40px;
+    padding: 10px;
+}   
+.usrimg:hover{
+    transform: scale(1.05);
+    filter: grayscale(0);
+    border: 1px dashed var(--active);
+    transition: 0.8s ease;
+}
+.name{
+    text-decoration: none;
+    color: var(--text);
+    font-size: 1.4em;
+    letter-spacing: 0.1em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.post{
+    color: var(--textdark);
+    font-size: 1.2em;
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.wrapper{
+    background: url('images/shape1.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+.cards-wrapper{
+    backdrop-filter: blur(4px);
+    padding-top: 40px;
+    border: 1px solid #0c0c0c;
+}
+.shape1{
+    position: absolute;
+    z-index: -1;
+    display: block;
+    width: 100%;
+    height: 700px;
+    margin-top: -1200px;
+    right: -600px;
+    transform: rotate(45deg);
+    background: url('images/shape4.svg');
+    background-position: center right;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.shape2{
+    display: block;
+    width: 100%;
+    height: 700px;
+    margin-top: -500px;
+    margin-left: -200px;
+    background: url('images/shape3.svg');
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+footer{
+    text-align: center;
+    font-family: var(--headings);
+    font-weight: 100;
+    padding-bottom: 40px;
+    letter-spacing: 0.1em;
+}
+footer a{
+    text-decoration: none;
+    color: rgb(150, 0, 62);
+    font-family: 'Allura', cursive;
+    font-size: 2em;
+}
+
+@media screen and (max-width: 1024px){
+    .head{
+        padding-left: 5%;
+    }
+    .main-heading{
+        font-size: 4em;
+    }
+    .wrapper{
+        padding: 5% 2%;
+    }
+    .cards-wrapper{
+        align-items: center;
+        justify-content: center;
+    }
+    .teamcard{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 560px){
+    .head{
+        padding-left: 5%;
+    }
+    .main-heading{
+        font-size: 3em;
+    }
+    .wrapper{
+        padding: 5%;
+    }
+    .cards-wrapper{
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(2px);
+    }
+    .teamcard{
+        width: 80%;
+    }
+    .shape1{
+        margin-top: -1400px;
+        right: -80px;
+        background-size: contain;
+        transform: rotate(5deg);
+    }
+    .shape2{
+        height: 700px;
+        margin-top: -600px;
+        margin-left: -20px;
+    }
+}
